@@ -1,0 +1,138 @@
+.c-nav-tabs {
+  border-bottom: 1px solid palette(grey, 2);
+  background-color: white;
+  position: relative;
+
+  @include full-width-bg(transparent, 1px solid palette(grey,2));  
+}
+
+// .c-nav-tabs--tab-group{
+//     //flex-flow: start;
+// }
+
+.c-nav-tabs--tab {
+  padding: 10px 25px;
+  flex: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &.s-active {
+    border-bottom: 4px solid palette(brand);
+
+    color: palette(brand, dark);
+  }
+
+  &:hover {
+    color: palette(brand);
+  }
+}
+
+.c-nav-tabs__mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.c-nav-tabs__mobile--tab-group {
+  background-color: palette(grey, 1);
+  box-shadow: $ritchie-shadow;
+  //border-top: 1px solid palette(grey,2);
+}
+
+.c-nav-tabs__mobile--tab {
+  text-align: center;
+  padding: spacing(x-small) spacing(x-small) 0;
+  color: palette(grey, 4);
+
+  &.s-active {
+    color: palette(brand);
+  }
+
+  i {
+    display: block;
+    font-size: 18px;
+    margin-bottom: spacing(xx-small);
+  }
+
+  span {
+    font-size: fontsize(30);
+    line-height: 0.7rem;
+  }
+}
+
+.c-nav-tabs__mobile--more-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: white;
+  padding: spacing(medium) spacing(small) spacing(large);
+  z-index: -1;
+  transition: $transition;
+  backface-visibility: hidden;
+  border: 1px solid palette(grey, 2);
+
+  &.s-shown {
+    transform: translateY(-100%);
+  }
+}
+
+
+
+.c-navigation__tertiary, .c-navigation__choice-create, .c-navigation__lot-details{
+  background-color: palette(brand,dark);
+  color: white;
+  padding: spacing(xx-small);
+  position: relative;
+
+  @include breakpoint(medium) {
+    //margin-bottom: spacing(medium);
+    padding: spacing(xx-small) 0;
+
+    @include full-width-bg(palette(brand,dark));
+  }
+}
+
+  .c-navigation__choice-create{
+    background-color: palette(grey);
+    border-top: 1px solid palette(grey,4);
+
+    &:before{
+      background-color: palette(grey);
+    }
+  }
+
+  .c-navigation__lot-details{
+    background-color: palette(brand);
+
+    &:before{
+      background-color: palette(brand);
+    }
+  }
+
+.o-navigation--pagination {
+  border-top: $ritchie-border;
+  padding: spacing(medium) 0;
+  position: relative;
+  text-align: center;
+
+  & > div {
+    padding: spacing(x-small) 0;
+  }
+}
+
+.o-navigation-link {
+  padding: 0 spacing(xx-small);
+
+  @include breakpoint(medmax) {
+    padding: spacing(medium) spacing(small);
+  }
+
+  &.s-active {
+    color: black;
+    font-weight: 700;
+  }
+}

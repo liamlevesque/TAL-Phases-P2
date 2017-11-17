@@ -1,0 +1,169 @@
+//TRANSITIONS
+$transition-time_1: .2s;
+$transition-time_2: .35s;
+$transition-function: cubic-bezier(0.630, 0.005, 0.365, 1.000);//cubic-bezier(0.95, 0.05, 0.795, 0.035);
+
+$transition: $transition-time_1 $transition-function;
+
+@mixin transition($properties...){
+    transition-property: $properties;
+    transition-duration: $transition-time_2;
+    transition-timing-function: $transition-function;
+}
+
+@mixin transition-delayed($delay, $properties...){
+    transition-property: $properties;
+    transition-duration: $transition-time_2;
+    transition-timing-function: $transition-function;
+    transition-delay: $delay;
+}
+
+@mixin pulsating{
+    animation-name: pulsating;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes pulsating{
+    0%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(1.03);
+    }
+}
+
+@mixin fadeinout{
+    animation-name: fadeinout;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out; 
+}
+
+@keyframes fadeinout{
+    0%{
+        opacity: 0;
+    }
+  
+    25%{
+        opacity: 1;
+    }
+  
+    75%{
+        opacity: 1;
+    }
+  
+    100%{
+        opacity: 0;
+    } 
+  
+  }
+
+
+
+
+@mixin loading($color,$height:4px,$bottom:0){
+    overflow: hidden;
+
+    &:after{
+        display: block;
+        position: absolute;
+        content: " ";
+        left: 0;
+        right: 0;
+        height: $height;
+        bottom: $bottom;
+        background-color: $color;
+        transform: translatex(-100%);
+
+        animation-name: waitingslide;
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+    }
+}
+
+@mixin bgwipe($color,$height:4px,$bottom:0){
+    &:before{
+        animation-name: rotateHourGlass;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        //animation-direction: alternate;
+        animation-timing-function: ease-in-out; 
+        z-index: 1;
+    }
+
+}
+
+    @keyframes rotateHourGlass{
+        0%{
+            transform: rotate(0);
+        }
+
+        25%{
+            transform: rotate(180deg);
+        }
+
+        50%{
+            transform: rotate(180deg);
+        }
+
+        75%{
+            transform: rotate(360deg);
+        }
+
+        100%{
+            transform: rotate(360deg);
+        }
+    }
+
+
+    @keyframes waitingslide{
+        0%{
+            transform: translatex(-100%);
+        }
+
+        50%{
+            transform: translatex(0);
+        }
+
+        100%{
+            transform: translatex(100%);
+        }
+    }
+
+
+@mixin shimmer{
+    z-index: 1;
+    overflow: hidden;
+
+    &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #003a70 44%,#005499 55%,#005499 71%,#003a70 91%);
+        z-index: -1;
+
+        animation-name: shimmer;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out; 
+    }
+}
+
+    @keyframes shimmer{
+        0%{
+           transform: translateX(-100%);
+        }
+        100%{
+            transform: translateX(100%);
+        }
+    }

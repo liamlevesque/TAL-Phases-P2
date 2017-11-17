@@ -1,0 +1,442 @@
+.o-lot-listings {
+  @include breakpoint(medmax) {
+    background-color: palette(grey, 1);
+    padding: spacing(x-small);
+  }
+}
+
+.c-lot-listing {
+  padding: spacing(medium) 0;
+  position: relative;
+  transition: $transition;
+  backface-visibility: hidden;
+  @include full-width-bg(white, 1px solid white);
+
+  @include breakpoint(medmax) {
+    //margin-bottom: spacing(x-small);
+    background-color: white;
+    //box-shadow: $ritchie-shadow;
+    padding: spacing(small) 0 0;
+  }
+
+  &:not(:last-child) {
+    @include breakpoint(medium) {
+      border-bottom: $ritchie-border;
+    }
+  }
+
+  // &.s-extended:before{
+  //   background-color: palette(blue,1);
+  // }
+
+  &.s-sold{
+    opacity: 0.85;
+    border-bottom: none;
+    &:before{
+      background-color: palette(grey,1);
+      border-bottom-color: palette(grey,2);
+    }
+  }
+
+  &.s-sold-to-you{
+    
+    &:before{
+      background-color: lighten(palette(grey,1),5%);
+      border-left: 10px solid palette(green);
+      border-bottom-color: palette(green);
+      border-top: 1px solid palette(green);
+    }
+  }
+}
+
+.c-lot--details-wrapper {
+  @include breakpoint(medmax) {
+    padding: 0 spacing(medium);
+  }
+}
+
+.c-lot--lot-photo {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.c-lot--lot-number {
+  @include breakpoint(medmax){
+    margin-top: spacing(small);
+  }
+  
+  @include breakpoint(medium){
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: spacing(xx-small) spacing(small);
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    z-index: 1;
+    border-radius: 0 0 8px 0;
+  }
+}
+
+.c-lot--lot-details {
+  padding: 0 spacing(medium);
+
+  @include breakpoint(medmax) {
+    padding-right: 0;
+  }
+}
+
+.c-lot--bid-and-closing {
+  padding: spacing(small);
+
+  @include breakpoint(medium) {
+    padding: spacing(small) 0;
+  }
+
+  // & > div + div {
+  //   padding-top: spacing(small);
+
+  //   @include breakpoint(medium) {
+  //     border-top: $ritchie-border;
+  //     margin-top: spacing(small);
+  //   }
+  // } //If there is both boxes show the border between them
+}
+
+.c-lot--bidding {
+  @include breakpoint(medmax) {
+    background-color: palette(grey, 1);
+    padding: 0 spacing(small);
+
+    [class*="o-message"] {
+      margin: 0 -1*spacing(small);
+    }
+  }
+}
+
+.c-lot--highBid {
+  color: palette(brand);
+
+  &.s-high-bidder {
+    color: palette(green);
+  }
+}
+
+.c-lot--sold-notice {
+  padding: spacing(x-small) 0 0;
+  margin-bottom: 0;
+}
+
+.c-lot-details {
+  margin-top: spacing(medium);
+  
+  @include breakpoint(medmax) {
+    margin-top: 0;
+    background-color: palette(grey, 1);
+  }
+}
+
+.c-lot-details--bidding,
+.c-lot-details--photo-area,
+.c-lot-details--details {
+  @include breakpoint(medmax) {
+    background-color: white;
+    border-top: 1px solid palette(grey, 2);
+    border-bottom: 1px solid palette(grey, 2);
+  }
+}
+
+.c-lot-details--photo-area {
+  @include breakpoint(medium) {
+    max-width: 400px;
+  }
+}
+
+.c-lot-details--lot-photo {
+  position: relative;
+  height: 0;
+  padding-bottom: 75%; //To make it always 4:3 sized, even when image is loading
+  background-color: palette(grey, 1);
+  margin-bottom: spacing(x-small);
+
+  @include breakpoint(medium) {
+    margin-bottom: spacing(medium);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.c-lot-details--lot-thumbnails {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+
+  @include breakpoint(medium) {
+    flex-wrap: wrap;
+  }
+}
+
+.c-lot-details--lot-thumbnail {
+  width: 32%;
+  margin-bottom: spacing(x-small);
+  cursor: pointer;
+  transition: $transition;
+  backface-visibility: hidden;
+
+  @include breakpoint(medmax) {
+    min-width: 30%;
+    margin-right: spacing(x-small);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &.s-active {
+    box-shadow: 0 0 0 5px palette(blue);
+    transform: scale(0.9);
+  }
+}
+
+.c-lot-details--details {
+  padding: 0 spacing(medium);
+
+  @include breakpoint(medmax) {
+    margin-top: spacing(small);
+    margin-bottom: spacing(small);
+    padding: 0 spacing(small);
+    padding-bottom: spacing(medium);
+  }
+}
+
+.c-lot-detail--text-fields {
+  @include breakpoint(medium) {
+    margin-top: spacing(small);
+  }
+}
+
+.c-lot-details--watch-area {
+  @include breakpoint(medmax) {
+    border-top: 1px solid palette(grey, 1);
+    border-bottom: 1px solid palette(grey, 1);
+    padding: spacing(x-small);
+    margin-bottom: spacing(medium);
+  }
+
+  @include breakpoint(medium) {
+    border-top: $ritchie-border;
+    padding-top: spacing(medium);
+    margin-top: spacing(small);
+  }
+}
+
+.c-lot-details--bidding {
+  @include breakpoint(medmax) {
+    padding: spacing(small);
+    padding-top: 0;
+    margin-bottom: 200px;
+
+    [class*="o-message"] {
+      margin: 0 -1*spacing(small);
+    }
+  }
+}
+
+.c-lot--bid-and-closing {
+  padding: spacing(small) 0 0;
+
+  & .c-lot--highBid + .c-lot--closing{
+    @include breakpoint(medium) {
+      border-top: $ritchie-border;
+      margin-top: spacing(small);
+    }
+  } //If there is both boxes show the border between them
+
+  & .c-lot--highBid + .c-lot--closing-soon{
+    @include breakpoint(medium) {
+      border-top: $ritchie-border;
+      margin-top: spacing(small);
+    }
+  }
+}
+
+  .c-lot--closing-time{
+    padding: spacing(small) spacing(small) spacing(small) 0;
+    white-space: nowrap;
+  }
+
+.dropin-enter-active, .dropin-enter-active{
+  transition: all .2s ease-in-out;
+}
+  .dropin-enter{
+    transform: translateY(-100%);
+    padding-top: 0;
+  }
+
+.slidein-enter-active, .slidein-enter-active{
+  transition: all .2s ease-in-out;
+}
+  .slidein-enter{
+    transform: translateX(100%);
+  }
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .2s;
+}
+
+.fade-enter{
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.c-lot--time-extended{
+  background-color: lighten(palette(rbblue),10%);
+  color: white;
+  position: relative;
+  padding: spacing(small);
+  overflow: hidden;
+  width: 40%;
+  text-align: center;
+  
+  span{
+    display: inline-block;
+    position: relative;
+    backface-visibility: hidden;
+    // white-space: nowrap;
+
+    &.s-hide{
+      transform: translateY(100%);
+    }
+  }
+}
+
+  .c-lot--new-bid{
+    @extend .h-abs-fill;
+    background-color: palette(red);
+    padding: spacing(small);
+    text-align: center;
+    letter-spacing: 1px;
+  }
+    
+  .dropinout-enter-active, .dropinout-leave-active {
+      transition: all .2s;
+    }
+    
+    .dropinout-enter{
+      transform: translateY(-100%);
+    }
+
+    .dropinout-leave-to{
+      transform: translateY(100%);
+    }
+
+  .lot--pulse-container{
+    width: 100%;
+    height: 100%;
+  }
+
+  .lot--pulseBorder{
+    stroke-dasharray: 1000;
+    animation-name: dash;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    opacity: 1;
+    //animation-direction: alternate;
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 0;
+      //stroke-dasharray: 100;
+    }
+
+    50%{
+      stroke-dashoffset: 1000;
+      //stroke-dasharray: 100% 0;
+    }
+
+    50.1%{
+      stroke-dashoffset: -1000;
+    }
+
+    100%{
+      stroke-dashoffset: 0;
+      //stroke-dasharray: 100% 0;
+    }
+
+    // 100%{
+    //   stroke-dashoffset: 100%;
+    //   stroke-dasharray: 0 50%;
+    // }
+    // 0% {
+    //   stroke-dashoffset: 100%;
+    //   stroke-dasharray: 200 0;
+    // }
+
+    // 25% {
+    //   stroke-dashoffset: 50%;
+    //   stroke-dasharray: 100 20;
+    // }
+
+    // 50% {
+    //   stroke-dashoffset: 0;
+    //   stroke-dasharray: 100 20;
+    // }
+
+    // 75% {
+    //   stroke-dashoffset: 50%;
+    //   stroke-dasharray: 200 0;
+    // }
+
+    // 100% {
+    //   stroke-dashoffset: 100%;
+    //   stroke-dasharray: 200 0;
+    // }
+  }
+
+
+.c-lot--bid-buttons {
+  @include breakpoint(medmax) {
+    display: none;
+
+    .c-lot-details & {
+      display: block;
+    }
+
+    padding: spacing(xx-small) spacing(medium);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+
+    &:before {
+      position: absolute;
+      top: -49px;
+      left: 0;
+      right: 0;
+      height: 50px;
+      content: "";
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 255)
+      );
+    }
+  }
+}
+
+.c-lot--messages__choice-group {
+  .c-choice-group--body & {
+    display: none;
+  }
+}

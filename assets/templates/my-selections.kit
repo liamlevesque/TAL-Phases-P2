@@ -1,0 +1,72 @@
+    <!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="manifest" href="./manifest.json">
+    <title>RB TIMED AUCTION</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+</head>
+
+<body class="body USD">
+	<div class="js--tal">
+        <!-- @include '/assets/components/layout/header' -->
+        
+        <div class="l-main-container"> 
+            <div class="js--nav-pin-waypoint"></div>
+            <div class="l-pin-header-wrapper js--pinned-header">
+                <div class="l-pin-header-inner">
+                    <div class="l-scroll-revealable-header" v-bind:class="{'s-showWholeHeader' : showSecondaryHeader}">
+                        <!-- @include '/assets/components/components/navigation_tabs' -->
+                        <!-- @include '/assets/components/layout/search__watching' -->
+                    </div>
+
+                    <div class="c-search-filter--filter g-wrapper g--center g-wrapper__centered-element">
+                        <div class="g-cell">
+                        </div>
+                        <div class="g-cell g-mob--full h-ta-center">
+                            <div class="o-input--toggle-group__inline">
+                                <label class="o-input--toggle"><input type="radio" name="lotstatus"><div>Upcoming Lots</div></label>
+                                <label class="o-input--toggle"><input type="radio" name="lotstatus"><div>Sold Lots</div></label>
+                                <label class="o-input--toggle"><input type="radio" name="lotstatus" checked><div>All Lots</div></label>
+                            </div>
+                        </div>
+                        <div class="g-cell h-hide-mobile">
+                            <label for="" class="t-field-label">Sort by:</label>
+                            <select class="o-input--select__inline">
+                                <option value="">Closing Time</option>
+                                <option value="">Closing Time</option>
+                                <option value="">Closing Time</option>
+                                <option value="">Closing Time</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="o-lot-listings" v-if="watchedLots.length > 0">
+                <div v-for="(lot,index) in lotsImWatching" class="c-lot-listing" v-bind:class="lotStatus(lot)"> 
+                    <!-- @include '/assets/components/components/lot_item' -->
+                </div>
+            </div>
+            <div v-else class="l-container__medium">
+                <div class="h-ta-center h-mt-500 h-mb-500">
+                    <img src="assets/img/empty.png">
+                    <h3 class="t-h3">You aren't watching or bidding on any equipment yet!</h3>
+                    <button class="o-button__primary">Start Bidding!</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- @include '/assets/components/layout/footer_paginated' -->
+        <footer>Prototype controls: <button v-on:click="emptyWatching">Show Empty Version</button></footer>
+        
+	</div>
+    <!-- @include '/assets/components/components/js-includes' -->
+
+</body>
+</html>

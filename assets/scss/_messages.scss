@@ -1,0 +1,109 @@
+[class*="o-message"]{
+    position: relative;
+
+    padding: spacing(small);
+    padding-left: 52px;
+
+    border: 1px solid transparent;
+
+    &:before{
+        @include icon-font;
+        font-size: 32px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 32px;
+        height: 32px;
+    }
+
+    &.s-pulsating{
+        @include pulsating;
+    }
+}
+
+
+
+    .o-message__info{
+        color: black;
+        background-color: palette(blue,1);
+        border-color: palette(blue,2);
+        @extend .icon-information;
+
+        &:before{
+            color: palette(blue);
+        }
+    }
+
+    .o-message__choice-group{
+        color: black;
+        background-color: palette(blue,1);
+        border-color: palette(blue,2);
+        @extend .icon-group;
+
+        &:before{
+            color: palette(blue);
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+
+    .o-message__tal{
+        color: palette(brand);
+        background-color: white;
+        border-color: transparent;
+        @extend .icon-TAL;
+        
+        &:before{
+            color: palette(brand);
+        }
+
+        &.s-highlight{
+            color: white;
+            background-color: palette(rbblue);
+            //@include bgwipe(darken(palette(brand,light),10%),100%,0);
+
+            &:before{
+                content: " ";
+                background-image: url(../img/hourglass.gif);
+                background-repeat: no-repeat;
+                background-size: 115% 115%;
+                background-position: center center;
+                background-color: white;
+                border-radius: 50%;
+            }
+        }
+    }
+
+
+    .o-message__error{
+        color: black;
+        background-color: palette(red,1);
+        border-color: palette(red,2);
+        @extend .icon-wrong;
+        
+        &:before{
+            color: palette(red);
+        }
+    }
+
+    .o-message__warning{
+        color: black;
+        background-color: palette(yellow,1);
+        border-color: palette(yellow,2);
+        @extend .icon-warning;
+
+        &:before{
+            color: palette(yellow);
+        }
+    }
+
+    .o-message__success{
+        color: black;
+        background-color: palette(green,1);
+        border-color: palette(green,2);
+        @extend .icon-correct;
+
+        &:before{
+            color: palette(green);
+        }
+    }

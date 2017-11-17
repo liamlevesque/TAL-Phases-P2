@@ -1,0 +1,110 @@
+$max-width: 80em;
+
+@mixin center-content{
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+.l-header{
+    padding: spacing(x-small);
+    @include center-content;
+
+    @include breakpoint(medium){
+        padding: spacing(large);
+        padding-bottom: spacing(small);
+    }
+}
+
+    .logo{
+        width: 60px;
+    }
+
+        #rba-header-logo-svg{
+            height: 40px;
+
+            @include breakpoint(medium){
+                height: 66px;
+            }
+        }
+
+            .logo-hide-small{
+                @include breakpoint(medmax){
+                    display: none;
+                }
+            }
+
+    .l-mobile-header--title{
+        padding-top: spacing(xx-small);
+        padding-right: 100px;
+    }
+
+.l-main-container{
+    @include center-content;
+    
+    @include breakpoint(medium){
+        padding: 0 spacing(large);
+    }
+}
+
+
+    .l-container__narrow{
+        margin: 0 auto;
+        max-width: 480px;
+    }
+
+    .l-container__medium{
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+
+.l-fixed-banner{
+    position: fixed;
+    top: 40px;
+    left: 2.5%;
+    z-index: 1001;
+    width: 95%;
+
+    @include breakpoint(medium){
+        width: 480px;
+        left: 50%;
+        margin-left: -240px;
+    }
+}
+
+.l-outline-box{
+    padding: spacing(small);
+    border: 1px solid palette(grey,2);
+}
+
+.l-pin-header-wrapper{
+    .s-pin-nav &{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 100;
+        
+        .l-pin-header-inner{
+            @include breakpoint(medium){
+                padding: 0 spacing(large);
+            }
+        }
+    }
+}
+    .l-pin-header-inner{
+        @include center-content;
+    }
+
+    .l-scroll-revealable-header{
+        @include full-width-bg(white);
+        @include breakpoint(medium){
+            overflow: hidden;
+            max-height: 200px;
+            transition: $transition;
+            
+            .s-pin-nav &.s-showWholeHeader{
+                max-height: 0;
+            }
+        }
+    }

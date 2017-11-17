@@ -1,0 +1,71 @@
+.c-notification-center{
+    position: fixed;
+    bottom: 0;
+    left: spacing(small);
+    width: 480px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: white;
+    box-shadow: $ritchie-shadow;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+    .c-notification-center__header{
+        border-bottom: 1px solid palette(grey,2);
+        padding: spacing(x-small);
+        background-color: palette(grey,4);
+        color: white;
+    }
+
+    .c-notification-center__body{
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1;
+        max-height: 250px;
+        transition: $transition;
+
+        &.s-minimized{
+            max-height: 0;
+        }
+    }
+
+    [class*='c-notification__']{
+        padding: spacing(small);
+        padding-left: 65px;
+        position: relative;
+
+        &:before{
+            @include icon-font;
+            font-size: 35px;
+            position: absolute;
+            left: spacing(small);
+            top: spacing(medium);
+        }
+        
+        &:not(last-child){
+            border-bottom: 1px solid palette(grey,2);
+        }
+    }
+
+        .c-notification__warning{
+            @extend .icon-warning;
+            &:before{
+                color: palette(yellow);
+            }
+        }
+
+        .c-notification__success{
+            @extend .icon-correct;
+            &:before{
+                color: palette(green);
+            }
+        }
+
+        .c-notification__watch{
+            @extend .icon-eye;
+            &:before{
+                color: palette(blue);
+                font-size: 20px;
+            }
+        }

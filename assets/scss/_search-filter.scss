@@ -1,0 +1,54 @@
+.c-search-filter{
+    background-color: palette(grey,1);
+    padding: 0 spacing(medium);
+    padding-top: spacing(x-small);
+
+    @include breakpoint(medium){
+        padding: 0;
+        padding-top: 0;
+        background-color: white;
+    }
+    @include breakpoint(medmax){
+        background-color: palette(brand);
+    }
+}
+
+.c-search-filter--search{
+    padding: spacing(x-small) 0;
+
+    @include breakpoint(large){
+        padding: spacing(small) 0;
+    }
+}
+
+.c-search-filter--filter{
+    background-color: palette(brand);
+    position: relative;
+    padding: spacing(xx-small) 0 spacing(x-small);
+
+    @include breakpoint(medium){
+        padding: spacing(xx-small) 0;
+
+        @include full-width-bg(palette(brand));
+    }
+
+    
+}
+
+    // #o-search-filter--visibility-toggle{
+    //     appearance: none;
+
+    //     & + label{
+    //         display: block;
+    //         margin: 0 spacing(medium) spacing(x-small);
+    //     }
+
+    //     &:checked + label div{
+    //         background-color: palette(blue);
+    //         color: white;
+    //     }
+
+    //     &:checked ~ .c-search-filter--search{
+    //         display: block;
+    //     }
+    // }
