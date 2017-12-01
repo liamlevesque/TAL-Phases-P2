@@ -42,7 +42,7 @@ var app = new Vue({
     filters:{
         secondsToTime: function(value){
             if (value) {
-                let minutes = Math.floor(value/60) + 'm ';
+                let minutes = (value/60 < 1)? '' : Math.floor(value/60) + 'm ';
                 let seconds = (value % 60 != 0) ? (value % 60) + 's' : '';
                 return minutes + seconds;
             }

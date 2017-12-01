@@ -27,9 +27,9 @@
                 <div class="h-ml-50" v-show="extensionsOn">
                     <div class="o-settings-table--row">
                         When a bid is placed with less than 
-                        <select class="o-input--select__inline">
-                            <option v-for="time in validTimes" v-bind:selected="time === firstExtension.threshold">{{ time | secondsToTime }}</option>
-                        </select>
+                        <select class="o-input--select__inline" v-model="firstExtension.threshold">
+                                <option v-for="time in validTimes" v-bind:selected="time === firstExtension.threshold" v-bind:value="time">{{ time | secondsToTime }}</option>
+                            </select>
                         remaining, extend the lot
                         <select class="o-input--select__inline">
                             <option selected>by</option>
@@ -47,8 +47,8 @@
                         </label>
                         <div class="g-cell" v-bind:class="{'s-disabled': !secondExtension.enabled }">
                             When a bid is placed with less than 
-                            <select class="o-input--select__inline">
-                                <option v-for="time in validTimes" v-bind:selected="time === secondExtension.threshold">{{ time | secondsToTime }}</option>
+                            <select class="o-input--select__inline" v-model="secondExtension.threshold">
+                                <option v-for="time in validTimes" v-bind:selected="time === secondExtension.threshold" v-bind:value="time" v-if="time < firstExtension.threshold">{{ time | secondsToTime }}</option>
                             </select>
                             remaining, extend the lot
                             <select class="o-input--select__inline">
