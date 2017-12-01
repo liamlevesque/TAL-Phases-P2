@@ -35,10 +35,6 @@ Vue.use(vueDirectiveTooltip, {
 var app = new Vue({
     el: ".js--tal",
     data: settings,
-    methods: {
-
-
-    },
     filters:{
         secondsToTime: function(value){
             if (value) {
