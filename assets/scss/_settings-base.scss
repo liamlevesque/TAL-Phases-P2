@@ -1,0 +1,22 @@
+.l-container__med{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.o-settings-table {
+    border: 1px solid palette(grey,3);
+}
+    
+    .o-settings-table--row{
+        padding: spacing(small);
+        border-bottom: 1px solid palette(grey,3);
+
+        &:last-child{
+            border-bottom: none;
+        }
+    }
+
+    .s-disabled{
+        opacity: .5;
+        pointer-events: none;
+    }

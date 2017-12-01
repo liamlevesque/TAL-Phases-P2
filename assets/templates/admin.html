@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="manifest" href="./manifest.json">
+        <title>RB TIMED AUCTION</title>
+        <link type="text/css" rel="stylesheet" href="assets/css/vue-tooltip.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8"> 
+    </head>
+
+    <body class="body USD">
+        <div class="js--tal l-container__narrow">
+            <div class="g-wrapper">
+                <div class="g-cell">Enable Time Extensions</div>
+                <label class="o-input--setting-toggle">
+                    <input type="checkbox" class="o-input--toggle">
+                    <div class="toggle-control"></div>
+                </label>
+            </div>
+            
+            <div class="">
+                When a bid is placed with less than 
+                <select class="o-input--select__inline">
+                    <option>30s</option>
+                    <option>45s</option>
+                    <option>1m</option>
+                    <option>1m 30s</option>
+                    <option selected>2m</option>
+                    <option>2m 30s</option>
+                    <option>3m</option>
+                    <option>3m 30s</option>
+                    <option>4m</option>
+                </select>
+                extend the lot
+                <select class="o-input--select__inline">
+                    <option selected>by</option>
+                    <option>to</option>
+                </select>
+                <select class="o-input--select__inline">
+                    <option>30s</option>
+                    <option>45s</option>
+                    <option selected>1m</option>
+                    <option>1m 30s</option>
+                    <option>2m</option>
+                    <option>2m 30s</option>
+                    <option>3m</option>
+                    <option>3m 30s</option>
+                    <option>4m</option>
+                </select>
+            </div>
+            
+            <div class="g-wrapper">
+                <label class="o-input--setting-toggle__inline">
+                    <input type="checkbox" class="o-input--toggle">
+                    <div class="toggle-control"></div>
+                </label>
+                <div class="g-cell">
+                    When a bid is placed with less than 
+                    <select class="o-input--select__inline">
+                        <option>30s</option>
+                        <option>45s</option>
+                        <option selected>1m</option>
+                        <option>1m 30s</option>
+                        <option>2m</option>
+                        <option>2m 30s</option>
+                        <option>3m</option>
+                        <option>3m 30s</option>
+                        <option>4m</option>
+                    </select>
+                    extend the lot
+                    <select class="o-input--select__inline">
+                        <option>by</option>
+                        <option selected>to</option>
+                    </select>
+                    <select class="o-input--select__inline">
+                        <option>30s</option>
+                        <option>45s</option>
+                        <option>1m</option>
+                        <option>1m 30s</option>
+                        <option selected>2m</option>
+                        <option>2m 30s</option>
+                        <option>3m</option>
+                        <option>3m 30s</option>
+                        <option>4m</option>
+                    </select>
+                </div>
+            </div>      
+                
+            <div class="g-wrapper">
+                <label class="o-input--setting-toggle__inline">
+                    <input type="checkbox" class="o-input--toggle">
+                    <div class="toggle-control"></div>
+                </label>
+                <div class="g-cell">
+                    A lot can only be extended up to
+                    <span>10</span>
+                    times
+                </div>
+            </div>    
+        </div>
+
+        <section style="display: none;">
+            <div id="timeExtensionTooltip" class="h-ta-left">
+                If any bids are placed when the lot is about to close, the closing time will be extended to allow other bidders to counter-bid before the lot closes. 
+                <div class="h-mt-100">
+                    <a class="t-link" href="./help.html" target="_blank">Tell Me More</a>
+                </div>
+            </div> 
+            
+        </section> 
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/vue-directive-tooltip@latest/dist/vueDirectiveTooltip.min.js"></script>
+        <script type="text/javascript" src="assets/js/min/moment-with-locales.min.js"></script>
+        <script type="text/javascript" src="assets/js/min/scripts-min.js"></script>
+        
+    </body>
+</html>
+

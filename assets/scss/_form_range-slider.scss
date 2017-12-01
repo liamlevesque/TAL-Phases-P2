@@ -1,0 +1,61 @@
+@mixin slider-thumb{
+	border: 2px solid white;
+	height: 30px;
+	width: 30px;
+	border-radius: 15px;
+	background: palette(green);
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -12px;
+	box-shadow: $ritchie-shadow;
+}
+
+@mixin slider-track{
+	width: 100%;
+	height: 10px;
+	cursor: pointer;
+	animate: 0.2s;
+	background: palette(grey);
+	border-radius: 5px;
+	border: 2px solid white;
+}
+
+.o-input--range{
+	appearance: none;
+	background-color: transparent;
+    margin: 18px 0;
+    width: 100%;
+    
+    &:focus {
+        outline: none;
+
+        &::-webkit-slider-runnable-track{
+            background: rgba(palette(green),0.5);
+        }
+
+        &::-moz-range-track{
+            background: rgba(palette(green),0.5);
+            outline: none;
+        }
+    }
+
+    &::-webkit-slider-runnable-track{
+        @include slider-track;
+    }
+
+    &::-moz-range-track{
+        @include slider-track;
+    }
+
+    &::-webkit-slider-thumb{
+        @include slider-thumb;
+    }
+
+    &::-moz-range-thumb{
+        @include slider-thumb;
+    }
+
+    &::-ms-thumb{
+        @include slider-thumb;	
+    }
+}

@@ -1482,6 +1482,111 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
       background: #E87511 url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 26 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.5956929,5.46505488 L14.2081177,27.9176603 C13.6229718,29.0764374 12.4701982,29.8512618 11.1632548,29.979246 C11.0406192,29.9896235 10.9109761,30 10.7883406,30 C9.61804876,30 8.49681036,29.4603909 7.7680054,28.5368283 L0.798810165,19.6643993 C-0.487109738,18.0178977 -0.192785175,15.644999 1.48206391,14.3720735 C3.14640229,13.0887714 5.55005634,13.3931662 6.8394805,15.0396678 L10.0910708,19.1766758 L18.7631471,2.08557549 C19.6951763,0.221155364 21.993715,-0.536373252 23.8858043,0.404484225 C25.7778936,1.33496521 26.5382338,3.60063374 25.5956929,5.46505488' fill='%23ffffff'/%3E%3C/svg%3E") center center no-repeat;
       background-size: 60%; }
 
+.o-input--setting-toggle {
+  cursor: pointer; }
+  .o-input--setting-toggle .toggle-control {
+    -webkit-transition: 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
+    transition: 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
+    width: 80px;
+    height: 34px;
+    display: block;
+    border: 2px solid #3F3F3F;
+    border-radius: 30px;
+    background-color: rgba(63, 63, 63, 0.3);
+    position: relative; }
+    .o-input--setting-toggle .toggle-control:after {
+      -webkit-transition: 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
+      transition: 0.2s cubic-bezier(0.63, 0.005, 0.365, 1);
+      content: "";
+      width: 30px;
+      height: 30px;
+      display: block;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    .o-input--setting-toggle .toggle-control:before {
+      content: "off";
+      position: absolute;
+      right: 15px;
+      line-height: 30px;
+      color: black; }
+  .o-input--setting-toggle input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0); }
+    .o-input--setting-toggle input:checked + .toggle-control {
+      border-color: #11AF00;
+      background-color: #C3E5C5; }
+      .o-input--setting-toggle input:checked + .toggle-control:after {
+        left: 46px; }
+      .o-input--setting-toggle input:checked + .toggle-control:before {
+        content: "on";
+        right: auto;
+        left: 15px; }
+
+.o-input--range {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  margin: 18px 0;
+  width: 100%; }
+  .o-input--range:focus {
+    outline: none; }
+    .o-input--range:focus::-webkit-slider-runnable-track {
+      background: rgba(17, 175, 0, 0.5); }
+    .o-input--range:focus::-moz-range-track {
+      background: rgba(17, 175, 0, 0.5);
+      outline: none; }
+  .o-input--range::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #3F3F3F;
+    border-radius: 5px;
+    border: 2px solid white; }
+  .o-input--range::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #3F3F3F;
+    border-radius: 5px;
+    border: 2px solid white; }
+  .o-input--range::-webkit-slider-thumb {
+    border: 2px solid white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background: #11AF00;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -12px;
+    -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
+  .o-input--range::-moz-range-thumb {
+    border: 2px solid white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background: #11AF00;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -12px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
+  .o-input--range::-ms-thumb {
+    border: 2px solid white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    background: #11AF00;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -12px;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5); }
+
 [id^="o-mobile-collapse--toggle"] {
   -webkit-appearance: none;
      -moz-appearance: none;

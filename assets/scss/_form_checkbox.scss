@@ -61,3 +61,69 @@ $plus-icon_hover: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 28 27' xmlns=
 		    }
 		}
 	}
+
+
+
+$toggle-height: 30px;
+$toggle-width: 80px;
+
+.o-input--setting-toggle{
+
+	cursor: pointer;
+	
+	.toggle-control{
+		transition: $transition;
+		width: $toggle-width;
+		height: $toggle-height+4px;
+		display: block;
+		border: 2px solid palette(grey);
+		border-radius: $toggle-height;
+		background-color: rgba(palette(grey),0.3);
+		
+		position: relative;
+		
+		&:after{
+		transition: $transition;
+		content: "";
+		width: $toggle-height;
+		height: $toggle-height;
+		display: block;
+		background-color: #fff;
+		border-radius: 50%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		}
+
+		&:before{
+			content: "off";
+			position: absolute;
+			right: spacing(small);
+			line-height: $toggle-height;
+			color: black;
+		}
+	}
+	
+	input{
+	position: absolute;
+	clip: rect(0,0,0,0);
+
+	&:checked + .toggle-control{
+		border-color: palette(green);
+		background-color: palette(green,2);
+		&:after{
+		left: $toggle-width - $toggle-height - 4px;
+		}
+		&:before{
+			content: "on";
+			right: auto;
+			left: spacing(small);
+		}
+	}
+	}
+	
+	.toggle_input{
+	
+	}
+	
+}

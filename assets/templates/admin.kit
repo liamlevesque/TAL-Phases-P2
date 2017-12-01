@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="manifest" href="./manifest.json">
+        <title>RB TIMED AUCTION</title>
+        <link type="text/css" rel="stylesheet" href="assets/css/vue-tooltip.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/settings.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8"> 
+    </head>
+
+    <body class="body USD">
+
+        <div class="js--tal l-container__med">
+            <h3 class="t-h3 h-mb-100 h-mt-200">Default Time Extension Settings</h3>
+            <div class="o-settings-table">
+                <div class="g-wrapper o-settings-table--row">
+                    <div class="g-cell">Enable Time Extensions</div>
+                    <label class="o-input--setting-toggle">
+                        <input type="checkbox" class="o-input--toggle" v-model="extensionsOn">
+                        <div class="toggle-control"></div>
+                    </label> 
+                </div>
+            
+                <div class="h-ml-50" v-show="extensionsOn">
+                    <div class="o-settings-table--row">
+                        When a bid is placed with less than 
+                        <select class="o-input--select__inline">
+                            <option v-for="time in validTimes" v-bind:selected="time === firstExtension.threshold">{{ time | secondsToTime }}</option>
+                        </select>
+                        remaining, extend the lot
+                        <select class="o-input--select__inline">
+                            <option selected>by</option>
+                            <option>to</option>
+                        </select>
+                        <select class="o-input--select__inline">
+                            <option v-for="time in validTimes" v-bind:selected="time === firstExtension.extension">{{ time | secondsToTime }}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="g-wrapper o-settings-table--row">
+                        <label class="o-input--setting-toggle h-mr-100">
+                            <input type="checkbox" class="o-input--toggle" v-model="secondExtension.enabled">
+                            <div class="toggle-control"></div>
+                        </label>
+                        <div class="g-cell" v-bind:class="{'s-disabled': !secondExtension.enabled }">
+                            When a bid is placed with less than 
+                            <select class="o-input--select__inline">
+                                <option v-for="time in validTimes" v-bind:selected="time === secondExtension.threshold">{{ time | secondsToTime }}</option>
+                            </select>
+                            remaining, extend the lot
+                            <select class="o-input--select__inline">
+                                <option>by</option>
+                                <option selected>to</option>
+                            </select>
+                            <select class="o-input--select__inline">
+                                <option v-for="time in validTimes" v-bind:selected="time === secondExtension.extension">{{ time | secondsToTime }}</option>
+                            </select>
+                        </div>
+                    </div>      
+                        
+                    <div class="g-wrapper o-settings-table--row">
+                        <label class="o-input--setting-toggle h-mr-100">
+                            <input type="checkbox" class="o-input--toggle" v-model="extensionsLimit.enabled">
+                            <div class="toggle-control"></div>
+                        </label>
+                        <div class="g-cell" v-bind:class="{'s-disabled': !extensionsLimit.enabled }">
+                            A lot can only be extended up to
+                            <span class="o-input--select__inline h-va-middle" v-tooltip.bottom="{ html: 'timeExtensionQuantityLimit' }">{{ extensionsLimit.limit }}</span>
+                            times
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @include '/assets/components/components/tooltips' --> 
+        </div>
+
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/vue-directive-tooltip@latest/dist/vueDirectiveTooltip.min.js"></script>
+        <script type="text/javascript" src="assets/js/min/moment-with-locales.min.js"></script>
+        <script type="text/javascript" src="assets/js/min/settings-min.js"></script>
+        
+    </body>
+</html>
+
