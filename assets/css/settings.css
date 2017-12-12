@@ -1270,6 +1270,9 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
 .h-mb-0 {
   margin-bottom: 0; }
 
+.h-mr-0 {
+  margin-right: 0 !important; }
+
 .h-mr-100 {
   margin-right: 15px; }
 
@@ -1298,7 +1301,7 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
   padding-right: 15px !important; }
 
 .h-p-0 {
-  padding: 0; }
+  padding: 0 !important; }
 
 .h-p-100 {
   padding: 15px !important; }
@@ -1318,7 +1321,7 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
   display: block; }
 
 .h-d-inline-block {
-  display: inline-block; }
+  display: inline-block !important; }
 
 .h-pos-relative {
   position: relative; }

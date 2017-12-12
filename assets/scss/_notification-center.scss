@@ -63,7 +63,7 @@
         }
 
         .c-notification__watch{
-            @extend .icon-eye;
+            @extend .icon-watch;
             &:before{
                 color: palette(blue);
                 font-size: 20px;
