@@ -1,13 +1,24 @@
 <header class="l-header">
     <div class="g-wrapper">
-        <div class="">
+        <div class="g-wrapper">
 
             <!-- @include '/assets/components/components/header_logo' -->
+            <div class="g-cell h-hide-desktop">
+                <h2 class="l-mobile-header--title t-h2 h-color-brand">{{ sale.name }}</h2>
+            </div>
+            
+        </div>
 
+        <div class="h-hide-desktop g-wrapper g--center h-width-100">
+            <div class="g-cell">
+                <h3 class="t-h3 h-mb-0"><i class="icon-TAL icon-size--xlarge h-color-brand h-mr-50"></i>Lots <span>{{ sale.lotRange.start }}</span> - <span>{{ sale.lotRange.end }}</span></h3>
+            </div>
+            <div class="t-bold">$ USD</div>
         </div>
 
         <div class="g-cell h-ta-right">
             
+            <div class="h-hide-desktop h-mt-100"><!-- A little padding above on mobile --></div>
             <!-- @include '/assets/components/components/header_language-select' -->
 
         </div>

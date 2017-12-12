@@ -50,6 +50,10 @@ $max-width: 80em;
     .l-container__narrow{
         margin: 0 auto;
         max-width: 480px;
+
+        @include breakpoint(medmax){
+            padding: 0 spacing(medium);
+        }
     }
 
     .l-container__medium{

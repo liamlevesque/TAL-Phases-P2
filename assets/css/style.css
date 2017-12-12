@@ -447,6 +447,16 @@ table, tr, td, tbody {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; } }
 
+.g-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.g-align-self__center {
+  -ms-flex-item-align: center;
+      align-self: center; }
+
 /* With gutters */
 .g-wrapper__gutters {
   margin-left: -30px;
@@ -2761,6 +2771,9 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
 .l-container__narrow {
   margin: 0 auto;
   max-width: 480px; }
+  @media (max-width: 63em) {
+    .l-container__narrow {
+      padding: 0 20px; } }
 
 .l-container__medium {
   margin: 0 auto;
