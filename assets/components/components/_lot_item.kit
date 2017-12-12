@@ -7,7 +7,7 @@
     </div>
     <div class="c-lot--details-wrapper g-cell g-cell__two-thirds g-mob--full">
         <div class="g-wrapper">
-            <div class="g-cell g-mob--quarter h-pos-relative">
+            <div class="g-cell g-cell__third g-mob--quarter h-pos-relative">
                 <a v-bind:href="'lot-details.html#' + (index + 20)">
                     <div class="c-lot-details--lot-photo">
                         <img v-bind:src="lot.photos[0].src" alt="">
@@ -15,14 +15,8 @@
                     <h3 class="c-lot--lot-number t-h3">Lot {{ lot.lotNumber }}</h3>
                 </a>
                 <button v-on:click.stop="bidAgainstMe(lot)" style="display:none">Bid Against Me</button>
-                <button class="o-button__icon-toggle o-button__mobile-toggle h-hide-desktop" 
-                        v-if="bidder.number != null && lot.status != 'sold'" 
-                        v-on:click="createOrAddToChoiceGroup(lot)"
-                        v-bind:class="{'s-active':tempChoiceGroup.indexOf(lot.lotNumber) >= 0}">
-                        <i class="icon-group-add icon-size--xlarge h-mr-0"></i>
-                </button>
             </div>
-            <div class="g-cell g-cell__two-thirds c-lot--lot-details">
+            <div class="g-cell g-cell__two-thirds g-mob--three-quarters c-lot--lot-details">
                 <a v-bind:href="'lot-details.html#' + (index + 20)">
                     <h3 class="t-h3 t-link">{{ lot.description }}</h3>
                 </a>
@@ -36,7 +30,7 @@
             </div>
         </div>
     </div> 
-    <div class="c-lot--bidding g-cell g-mob--full">
+    <div class="c-lot--bidding g-cell g-cell__third g-mob--full">
         <!-- @include '/assets/components/components/lot_bid-area' --> 
         <!-- @include '/assets/components/components/lot_bid-buttons' -->
         <!-- @include '/assets/components/components/lot_bid-messages' -->

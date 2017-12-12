@@ -14,7 +14,7 @@
 }
 
 .c-search-filter--search{
-    padding: spacing(x-small) 0;
+    padding: spacing(x-small) spacing(medium);
 
     @include breakpoint(large){
         padding: spacing(small) 0;

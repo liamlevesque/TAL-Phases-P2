@@ -69,24 +69,10 @@ $gutters: spacing(large);
   flex: 1;
 }
 
-.g-mob--full {
-  @include breakpoint(medmax) {
+.g-desktop--full {
+  @include breakpoint(medium) {
     width: 100%;
     min-width: 100%;
-  }
-}
-
-.g-mob--quarter {
-  @include breakpoint(medmax) {
-    flex: none !important;
-    width: 25vw;
-  }
-}
-
-.g-mob--third {
-  @include breakpoint(medmax) {
-    flex: none !important;
-    width: 33vw;
   }
 }
 
@@ -115,25 +101,36 @@ $gutters: spacing(large);
 .g-cell--center {
   align-self: center;
 }
+ 
 
-.g-cell__half {
-  @include breakpoint(medium) {
-    flex: none !important;
-    width: 50% !important;
+$gridstops: 	
+        "tenth" "10%",
+        "quarter" "25%",
+        "third" "33%",
+        "half" "50%",
+        "two-thirds" "66%",
+        "three-quarters" "75%",
+        "full" "100%";
+
+
+@each $stop in $gridstops{
+  .g-cell__#{nth($stop,1)}{
+    @include breakpoint(medium){
+      flex-basis: #{nth($stop,2)};
+
+      _:-ms-fullscreen, :root .g-cell__#{nth($stop,1)} {
+        flex-basis: #{nth($stop,2)};
+      }
+    }
   }
-}
-
-.g-cell__two-thirds {
-  @include breakpoint(medium) {
-    flex: none !important;
-    width: 66% !important;
-  }
-}
-
-.g-cell__full {
-  @include breakpoint(medium) {
-    flex: none !important;
-    width: 100% !important;
+  .g-mob--#{nth($stop,1)}{
+    @include breakpoint(medmax){
+      flex-basis: #{nth($stop,2)};
+      
+      _:-ms-fullscreen, :root .g-mob--#{nth($stop,1)} {
+        flex-basis: #{nth($stop,2)};
+      }
+    }
   }
 }
 

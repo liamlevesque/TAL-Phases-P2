@@ -2,9 +2,9 @@
     <div class="o-data-table--header">Bid History</div>
     <ul v-if="lot.bids.length > 0" class="o-data-table--body">
         <li class="o-data-table--row g-wrapper" v-for="bid in lot.bids">
-            <div class="g-cell">{{ bid.bidder }}</div>
-            <div class="g-cell CCY">{{ bid.bid }}</div>
-            <div class="g-cell g-cell__half">{{ bid.time | calendarTime }}</div>
+            <div class="g-cell g-cell__tenth g-mob--tenth">{{ bid.bidder }}</div>
+            <div class="g-cell g-cell__quarter g-mob--quarter h-ta-center CCY">{{ bid.bid }}</div>
+            <div class="g-cell g-cell__half g-mob--half h-ta-right">{{ bid.time | calendarTime }}</div>
         </li>
     </ul>
     <div class="o-data-table--body h-p-100 t-faint" v-else>

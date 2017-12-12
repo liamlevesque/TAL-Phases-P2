@@ -1,8 +1,5 @@
 .o-lot-listings {
-  @include breakpoint(medmax) {
-    background-color: palette(grey, 1);
-    padding: spacing(x-small);
-  }
+  
 }
 
 .c-lot-listing {
@@ -13,10 +10,24 @@
   @include full-width-bg(white, 1px solid white);
 
   @include breakpoint(medmax) {
-    //margin-bottom: spacing(x-small);
-    background-color: white;
-    //box-shadow: $ritchie-shadow;
     padding: spacing(small) 0 0;
+    border-bottom: 5px solid palette(grey,1);
+
+    &.s-highbidder, &.s-outbid{
+      padding-left: 10px;
+
+      &:before{
+        border-left: 10px solid palette(green);
+        border-bottom-color: palette(green);
+        border-top: 1px solid palette(green); 
+      }
+    }
+
+    &.s-outbid:before{
+      border-left: 10px solid palette(yellow);
+      border-bottom-color: palette(yellow);
+      border-top: 1px solid palette(yellow); 
+    }
   }
 
   &:not(:last-child) {
@@ -31,20 +42,14 @@
 
   &.s-sold{
     opacity: 0.85;
-    border-bottom: none;
+    
+    @include breakpoint(medium){
+      border-bottom: none;
+    }
+
     &:before{
       background-color: palette(grey,1);
       border-bottom-color: palette(grey,2);
-    }
-  }
-
-  &.s-sold-to-you{
-    
-    &:before{
-      background-color: lighten(palette(grey,1),5%);
-      border-left: 10px solid palette(green);
-      border-bottom-color: palette(green);
-      border-top: 1px solid palette(green);
     }
   }
 }
@@ -105,7 +110,6 @@
 
 .c-lot--bidding {
   @include breakpoint(medmax) {
-    background-color: palette(grey, 1);
     padding: 0 spacing(small);
 
     [class*="o-message"] {
@@ -253,24 +257,21 @@
 .c-lot--bid-and-closing {
   padding: spacing(small) 0 0;
 
-  & .c-lot--highBid + .c-lot--closing{
+  & .c-lot--highBid + .c-lot--closing, .c-lot--highBid + .c-lot--closing-soon{
     @include breakpoint(medium) {
       border-top: $ritchie-border;
       margin-top: spacing(small);
     }
   } //If there is both boxes show the border between them
-
-  & .c-lot--highBid + .c-lot--closing-soon{
-    @include breakpoint(medium) {
-      border-top: $ritchie-border;
-      margin-top: spacing(small);
-    }
-  }
 }
+  .c-lot--closing{
+    padding: 15px 0;
+    flex-wrap: wrap;
+  }
 
   .c-lot--closing-time{
-    padding: spacing(small) spacing(small) spacing(small) 0;
     white-space: nowrap;
+    align-self: flex-end;
   }
 
 .dropin-enter-active, .dropin-enter-active{

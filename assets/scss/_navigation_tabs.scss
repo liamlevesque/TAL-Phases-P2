@@ -3,7 +3,11 @@
   background-color: white;
   position: relative;
 
-  @include full-width-bg(transparent, 1px solid palette(grey,2));  
+  @include full-width-bg(transparent, 1px solid palette(grey,2));
+  
+  &:before{
+    bottom: -1px;
+  }
 }
 
 // .c-nav-tabs--tab-group{

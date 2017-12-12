@@ -404,8 +404,9 @@ var app = new Vue({
     },
     lotStatus:function(lot){
       return{
+        's-outbid': lot.bids[0] && lot.bids[0].bidder != this.bidder.number && lot.bids.filter(bid => bid.bidder === this.bidder.number).length > 0,
+        's-highbidder': lot.bids[0] && lot.bids[0].bidder === this.bidder.number,
         's-sold':lot.status === 'sold',
-        's-sold-to-you':lot.status === 'sold' && lot.bids[0] && lot.bids[0].bidder === this.bidder.number,
         's-extended': lot.extended
       }
     },

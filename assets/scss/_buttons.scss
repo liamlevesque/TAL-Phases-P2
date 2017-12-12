@@ -115,6 +115,10 @@ $button-padding: 25px;
     background-color: palette(blue);
   }
 }
+  .o-button__toggle_grey{
+    color: palette(grey);
+    border-color: palette(grey);
+  }
 
 .o-button__mobile-toggle {
   @include breakpoint(medmax) {

@@ -142,6 +142,10 @@ a.t-link {
   cursor: pointer;
 }
 
+.t-field-label, .t-inline-label{
+  color: palette(grey,4);
+}
+
 .t-field-label,
 .t-lh-300 {
   line-height: $input-height;
