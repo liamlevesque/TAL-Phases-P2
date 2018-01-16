@@ -1,4 +1,3 @@
-
 const tal = {
   sale: {
     name: "Orlando, FL, USA",
@@ -35,7 +34,7 @@ const tal = {
   creatingChoiceGroup: false,
   tempChoiceGroupArray: [],
   tempChoiceGroup: [],
-  tempChoiceBid:null,
+  tempChoiceBid: null,
   choiceProgress: 1,
   completeChoiceGroupModalVisible: false,
   choiceGroups: [
@@ -46,7 +45,7 @@ const tal = {
       quantity: 2,
       maxbid: 100
     }
-  ], 
+  ],
 
   purchasedLots: ["5001", "5004"],
   searchResults: ["5045", "5046", "5047", "5048", "5049", "5050"],
@@ -65,32 +64,32 @@ const tal = {
   outbidMessageLot: lotlist[33],
   messages: [
     {
-      type: 'warning',
+      type: "warning",
       lot: lotlist[33],
-      message: 'You\'ve been outbid on a lot closing soon:'
+      message: "You've been outbid on a lot closing soon:"
     },
     {
       lot: lotlist[21],
-      type: 'success',
-      message: 'Nice work! You won a lot you were bidding on!'
+      type: "success",
+      message: "Nice work! You won a lot you were bidding on!"
     },
     {
       lot: lotlist[23],
-      type: 'watch',
-      message: 'A lot you are watching is closing soon!'
+      type: "watch",
+      message: "A lot you are watching is closing soon!"
     },
     {
       lot: lotlist[30],
-      type: 'warning',
-      message: 'You have been outbid a lot you were bidding on!'
+      type: "warning",
+      message: "You have been outbid a lot you were bidding on!"
     },
     {
       lot: lotlist[35],
-      type: 'watch',
-      message: 'Bidding has opened for a lot you are watching!'
+      type: "watch",
+      message: "Bidding has opened for a lot you are watching!"
     }
   ],
-  notificationsMinimized: false,
+  notificationsMinimized: false
 };
 
 document.addEventListener(
@@ -103,9 +102,9 @@ document.addEventListener(
       );
     }
 
-    // setInterval(function(){
-    //   app.currentTime = moment();
-    // },1000);
+    setInterval(function() {
+      app.currentTime = moment();
+    }, 1000);
 
     var waypoint = new Waypoint({
       element: document.querySelector(".js--nav-pin-waypoint"),
@@ -130,9 +129,9 @@ document.addEventListener(
 
 Vue.use(vueDirectiveTooltip, {
   delay: 500,
-  placement: 'top',
-  class: 'tooltip-rb',
-  triggers: ['hover','click'],
+  placement: "top",
+  class: "tooltip-rb",
+  triggers: ["hover", "click"],
   offset: 0
 });
 
@@ -177,8 +176,8 @@ var app = new Vue({
       window.location = page + ".html";
     },
     isActivePage: function(paths) {
-      for(var i = 0; i< paths.length; i++){
-        if(window.location.pathname.split("/").pop() === paths[i]) 
+      for (var i = 0; i < paths.length; i++) {
+        if (window.location.pathname.split("/").pop() === paths[i])
           return {
             "s-active": window.location.pathname.split("/").pop() === paths[i]
           };
@@ -191,7 +190,7 @@ var app = new Vue({
     placeMaxBid: function(lot) {
       if (lot.tempMaxBid === null) this.toggleInvalidMaxBidVisible();
       else this.toggleOffIncrementMaxBidVisible();
-      
+
       lot.tempMaxBid = null;
       //else this.confirmPlaceMaxBidVisible = true;
 
@@ -204,7 +203,12 @@ var app = new Vue({
     completeBid: function() {
       this.confirmPlaceBidVisible = false;
       this.watchLot(this.selectedLot, false);
-      this.pricedBid(this.selectedLot, "quick", this.bidder.number, this.selectedLot.bids[0] ? this.selectedLot.bids[0].bid + 5 : 5);
+      this.pricedBid(
+        this.selectedLot,
+        "quick",
+        this.bidder.number,
+        this.selectedLot.bids[0] ? this.selectedLot.bids[0].bid + 5 : 5
+      );
     },
     watchLot: function(lot, removeIfExists) {
       if (this.watchedLots.indexOf(lot.lotNumber) < 0) {
@@ -225,23 +229,29 @@ var app = new Vue({
 
     pricedBid: function(lot, type, bidder, amt) {
       lot.bids.unshift(this.buildBid(bidder, amt, type));
-      if(lot.maxBid.bid > amt) lot.bids.unshift(this.buildBid(lot.maxBid.bidder, amt + 5, 'max'));
+      if (lot.maxBid.bid > amt)
+        lot.bids.unshift(this.buildBid(lot.maxBid.bidder, amt + 5, "max"));
 
       let span = closingTime(lot.closes);
-      if(lot.extended || (span.days() === 0 && span.hours() === 0 && span.minutes() < 1 )){
-        lot.closes = moment().add(2,'minutes');
+      if (
+        lot.extended ||
+        (span.days() === 0 && span.hours() === 0 && span.minutes() < 1)
+      ) {
+        lot.closes = moment().add(2, "minutes");
         lot.extended = true;
-      } 
-      else if(lot.extended || (span.days() === 0 && span.hours() === 0 && span.minutes() < 2 )){
-        lot.closes = moment(lot.closes).add(1,'minutes');
+      } else if (
+        lot.extended ||
+        (span.days() === 0 && span.hours() === 0 && span.minutes() < 2)
+      ) {
+        lot.closes = moment(lot.closes).add(1, "minutes");
         lot.extended = true;
       }
 
-      //if(bidder != this.bidder.number){ 
-        lot.newBid = true;
-        setTimeout(function(){
-          lot.newBid = false;
-        },2000);
+      //if(bidder != this.bidder.number){
+      lot.newBid = true;
+      setTimeout(function() {
+        lot.newBid = false;
+      }, 2000);
       //}
     },
 
@@ -268,9 +278,11 @@ var app = new Vue({
       this.completeChoiceGroupModalVisible = !this
         .completeChoiceGroupModalVisible;
     },
-    updateChoiceGroup: function(){
+    updateChoiceGroup: function() {
       this.tempChoiceGroup = [];
-      this.tempChoiceGroupArray.map( key => this.tempChoiceGroup.push(this.lots[key]))
+      this.tempChoiceGroupArray.map(key =>
+        this.tempChoiceGroup.push(this.lots[key])
+      );
     },
     progressClasses: function(step) {
       return {
@@ -282,9 +294,12 @@ var app = new Vue({
       this.choiceProgress = step;
     },
     finishChoiceGroup: function() {
-      for(let i = 0; i < this.tempChoiceGroup.length; i++){
+      for (let i = 0; i < this.tempChoiceGroup.length; i++) {
         console.log(this.tempChoiceGroup.length);
-        if(this.tempChoiceGroup[i].status === 'notinyard' || this.tempChoiceGroup[i].status === 'sold'){
+        if (
+          this.tempChoiceGroup[i].status === "notinyard" ||
+          this.tempChoiceGroup[i].status === "sold"
+        ) {
           this.choiceProgress = 5;
           return;
         }
@@ -300,7 +315,7 @@ var app = new Vue({
 
       this.choiceGroups.push(newGroup);
       this.toggleCompleteChoiceGroupModalVisible();
-      this.gotoPage('choice-groups');
+      this.gotoPage("choice-groups");
     },
     toggleManageAlertsVisible: function() {
       this.manageAlertsVisible = !this.manageAlertsVisible;
@@ -315,9 +330,7 @@ var app = new Vue({
       this.activeThumbnail = index;
     },
     nextIncrement: function(lot) {
-      return (
-        lot.bids.length > 0 ? lot.bids[0].bid + 5 : "5"
-      );
+      return lot.bids.length > 0 ? lot.bids[0].bid + 5 : "5";
     },
     togglePausedMessageVisible: function() {
       this.pausedMessageVisible = !this.pausedMessageVisible;
@@ -330,8 +343,7 @@ var app = new Vue({
     },
     createOrAddToChoiceGroup: function(lot) {
       if (!this.creatingChoiceGroup) this.creatingChoiceGroup = true;
-      if (this.tempChoiceGroup.indexOf(lot) < 0)
-        this.tempChoiceGroup.push(lot); 
+      if (this.tempChoiceGroup.indexOf(lot) < 0) this.tempChoiceGroup.push(lot);
     },
 
     emptyPurchases: function() {
@@ -346,89 +358,111 @@ var app = new Vue({
     emptySearch: function() {
       this.searchResults = [];
     },
-    toggleViewerMode: function(){
-      this.bidder.number = (this.bidder.number != null)? null : '12345' ; 
+    toggleViewerMode: function() {
+      this.bidder.number = this.bidder.number != null ? null : "12345";
     },
 
-    countdown(lot){
+    countdown(lot) {
       let span = moment.duration(lot.closes - this.currentTime);
       //let extendedSpan = moment.duration(lot.extendedClose - this.currentTime);
-      
-      if(span.seconds() < 0){ 
-        lot.status = 'sold';
+
+      if (span.seconds() < 0) {
+        lot.status = "sold";
       }
-      let days = span.days() > 0 ? `${span.days()}d ` : '';
-      let hours = span.hours() > 0 || span.days() > 0 ? `${span.hours()}h ` : '';
-      let minutes = span.minutes() > 0 || span.hours() > 0 || span.days() > 0 ? `${span.minutes()}m ` : '';
-      let seconds = span.seconds() > 0 || span.minutes() > 0 || span.hours() > 0 || span.days() > 0 ? `${span.seconds()}s` : '';
+      let days = span.days() > 0 ? `${span.days()}d ` : "";
+      let hours =
+        span.hours() > 0 || span.days() > 0 ? `${span.hours()}h ` : "";
+      let minutes =
+        span.minutes() > 0 || span.hours() > 0 || span.days() > 0
+          ? `${span.minutes()}m `
+          : "";
+      let seconds =
+        span.seconds() > 0 ||
+        span.minutes() > 0 ||
+        span.hours() > 0 ||
+        span.days() > 0
+          ? `${span.seconds()}s`
+          : "";
 
       //if(seconds.length < 2) seconds = '0' + seconds;
 
       return days + minutes + hours + seconds;
     },
-    absoluteTime(time){
-      if(typeof time._d === 'undefined') return time;
-      return time._d + 'hat';
+    absoluteTime(time) {
+      if (typeof time._d === "undefined") return time;
+      return time._d + "hat";
     },
-    closingSoon: function(lot){
+    closingSoon: function(lot) {
       //if(lot.extended) return true;
       let span = closingTime(lot.closes);
-      if(span.days() === 0 && span.hours() === 0 && span.minutes() === 0 && span.seconds() < this.timeGoingOnce){
-         return true;
+      if (
+        span.days() === 0 &&
+        span.hours() === 0 &&
+        span.minutes() === 0 &&
+        span.seconds() < this.timeGoingOnce
+      ) {
+        return true;
       }
       return false;
     },
-    closingSoonString: function(lot){
+    closingSoonString: function(lot) {
       if (!lot.closes) return "";
       let span = closingTime(lot.closes);
-      if(span.days() === 0 && span.hours() === 0 && span.minutes() === 0){
-        if( span.seconds() < this.timeGoingThrice ) return "Going Three Times";
-        else if( span.seconds() < this.timeGoingTwice ) return "Going Twice";
-        else if( span.seconds() < this.timeGoingOnce) return "Going Once";
+      if (span.days() === 0 && span.hours() === 0 && span.minutes() === 0) {
+        if (span.seconds() < this.timeGoingThrice) return "Going Three Times";
+        else if (span.seconds() < this.timeGoingTwice) return "Going Twice";
+        else if (span.seconds() < this.timeGoingOnce) return "Going Once";
       }
       //else if() return "Closing Soon!"
     },
-    toggleOutbidMessage: function(){
+    toggleOutbidMessage: function() {
       this.outbidMessageVisible = !this.outbidMessageVisible;
-      if(this.outbidMessageVisible) this.pricedBid(this.outbidMessageLot, "quick", '10005', 105);
+      if (this.outbidMessageVisible)
+        this.pricedBid(this.outbidMessageLot, "quick", "10005", 105);
     },
-    navigateToLot: function(lotNumber){
+    navigateToLot: function(lotNumber) {
       this.outbidMessageVisible = false;
-      if(document.body.scrollIntoView){
+      if (document.body.scrollIntoView) {
         let element = document.getElementById(lotNumber);
-        element.scrollIntoView({behavior: "smooth"});
-      }
-      else{
-        window.location += "#"+lotNumber;
-      }
-    },
-    lotStatus:function(lot){
-      return{
-        's-outbid': lot.bids[0] && lot.bids[0].bidder != this.bidder.number && lot.bids.filter(bid => bid.bidder === this.bidder.number).length > 0,
-        's-highbidder': lot.bids[0] && lot.bids[0].bidder === this.bidder.number,
-        's-sold':lot.status === 'sold',
-        's-extended': lot.extended
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location += "#" + lotNumber;
       }
     },
-    notificationTypes:function(message){
-      return{
-        'c-notification__warning': message.type === 'warning',
-        'c-notification__success': message.type === 'success',
-        'c-notification__info': message.type === 'info',
-        'c-notification__watch': message.type === 'watch'
-      }
+    lotStatus: function(lot) {
+      return {
+        "s-outbid":
+          lot.bids[0] &&
+          lot.bids[0].bidder != this.bidder.number &&
+          lot.bids.filter(bid => bid.bidder === this.bidder.number).length > 0,
+        "s-highbidder":
+          lot.bids[0] && lot.bids[0].bidder === this.bidder.number,
+        "s-sold": lot.status === "sold",
+        "s-extended": lot.extended
+      };
     },
-    toggleNotificationsMinimized: function(){
+    notificationTypes: function(message) {
+      return {
+        "c-notification__warning": message.type === "warning",
+        "c-notification__success": message.type === "success",
+        "c-notification__info": message.type === "info",
+        "c-notification__watch": message.type === "watch"
+      };
+    },
+    toggleNotificationsMinimized: function() {
       this.notificationsMinimized = !this.notificationsMinimized;
     },
-    toggleSessionTimedOut: function(){
+    toggleSessionTimedOut: function() {
       this.sessionTimedOut = !this.sessionTimedOut;
     },
-    bidAgainstMe: function(lot){
-      this.pricedBid(lot, "quick", '10005', lot.bids[0] ? lot.bids[0].bid + 5 : 5);
+    bidAgainstMe: function(lot) {
+      this.pricedBid(
+        lot,
+        "quick",
+        "10005",
+        lot.bids[0] ? lot.bids[0].bid + 5 : 5
+      );
     }
-
-
   },
   computed: {
     findOneLot: function() {
@@ -455,8 +489,7 @@ var app = new Vue({
       return this.lots.filter(
         lot => this.searchResults.indexOf(lot.lotNumber) >= 0
       );
-    },
-
+    }
   },
   filters: {
     returnFirstItem: function(value) {
@@ -480,13 +513,11 @@ var app = new Vue({
         span.seconds() +
         "s"
       );
-    },
-    
+    }
   }
 });
 
-
-function closingTime(closes){
+function closingTime(closes) {
   let now = moment();
   let end = moment(closes);
   return moment.duration(end - now);
