@@ -357,7 +357,7 @@
                                             ({{ lot.closes | calendarTime }})
                                         </div>
                                         <transition name="dropin">
-                                            <div v-if="lot.extended" class="t-bold c-lot--time-extended">
+                                            <div v-if="lot.extended" class="t-bold c-lot--time-extended g-cell">
                                                 <span>Time Added</span>
                                                 <i class="icon-help icon-size--ml h-ml-50" v-tooltip.top.end="{ html: 'timeExtensionTooltip' }"></i>
                                                 <transition name="dropinout">
