@@ -2327,6 +2327,10 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
   .o-navigation--pagination > div {
     padding: 10px 0; }
 
+@media (max-width: 25em) {
+  .h-hide-xxsmall {
+    display: none; } }
+
 @media (max-width: 63em) {
   .o-navigation--pages {
     border: 2px solid #CCCCCC;

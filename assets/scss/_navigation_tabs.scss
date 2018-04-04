@@ -128,6 +128,12 @@
   }
 }
 
+.h-hide-xxsmall {
+  @include breakpoint(tinymax) {
+    display: none;
+  }
+}
+
 .o-navigation--pages {
   @include breakpoint(medmax) {
     border: 2px solid palette(grey, 2);
