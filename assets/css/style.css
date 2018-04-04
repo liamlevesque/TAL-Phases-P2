@@ -2329,7 +2329,7 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
 
 @media (max-width: 63em) {
   .o-navigation--pages {
-    border: 2px solid #797979;
+    border: 2px solid #CCCCCC;
     border-radius: 4px;
     margin: 0 auto;
     display: -webkit-box;
@@ -2342,7 +2342,7 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
     margin-bottom: 20px; } }
 
 .o-navigation--center {
-  border-right: 2px solid #797979;
+  border-right: 2px solid #CCCCCC;
   display: inline-block; }
   .o-navigation--center .o-input--select {
     height: 100%;
@@ -2350,7 +2350,7 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
 
 .o-navigation-link {
   padding: 0 5px;
-  border-right: 2px solid #797979;
+  border-right: 2px solid #CCCCCC;
   display: inline-block;
   padding-right: 10px; }
   .o-navigation-link:last-of-type {

@@ -130,7 +130,7 @@
 
 .o-navigation--pages {
   @include breakpoint(medmax) {
-    border: 2px solid palette(grey, 4);
+    border: 2px solid palette(grey, 2);
     border-radius: 4px;
     margin: 0 auto;
     display: flex;
@@ -141,7 +141,7 @@
 }
 
 .o-navigation--center {
-  border-right: 2px solid palette(grey, 4);
+  border-right: 2px solid palette(grey, 2);
   display: inline-block;
 
   .o-input--select {
@@ -152,7 +152,7 @@
 
 .o-navigation-link {
   padding: 0 spacing(xx-small);
-  border-right: 2px solid palette(grey, 4);
+  border-right: 2px solid palette(grey, 2);
   display: inline-block;
   padding-right: spacing(x-small);
 
