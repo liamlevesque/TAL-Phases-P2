@@ -2280,15 +2280,21 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
     -webkit-transform: translateY(-100%);
             transform: translateY(-100%); }
 
-.c-navigation__tertiary, .c-navigation__choice-create, .c-navigation__lot-details {
+.c-navigation__tertiary,
+.c-navigation__choice-create,
+.c-navigation__lot-details {
   background-color: #D1680F;
   color: white;
   padding: 5px;
   position: relative; }
   @media (min-width: 63em) {
-    .c-navigation__tertiary, .c-navigation__choice-create, .c-navigation__lot-details {
+    .c-navigation__tertiary,
+    .c-navigation__choice-create,
+    .c-navigation__lot-details {
       padding: 5px 0; }
-      .c-navigation__tertiary:before, .c-navigation__choice-create:before, .c-navigation__lot-details:before {
+      .c-navigation__tertiary:before,
+      .c-navigation__choice-create:before,
+      .c-navigation__lot-details:before {
         content: '';
         position: absolute;
         left: 50%;
@@ -2321,11 +2327,37 @@ input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
   .o-navigation--pagination > div {
     padding: 10px 0; }
 
+@media (max-width: 63em) {
+  .o-navigation--pages {
+    border: 2px solid #797979;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: stretch;
+        -ms-flex-pack: stretch;
+            justify-content: stretch;
+    padding: 0 !important;
+    margin-bottom: 20px; } }
+
+.o-navigation--center {
+  border-right: 2px solid #797979;
+  display: inline-block; }
+  .o-navigation--center .o-input--select {
+    height: 100%;
+    border: none; }
+
 .o-navigation-link {
-  padding: 0 5px; }
+  padding: 0 5px;
+  border-right: 2px solid #797979;
+  display: inline-block;
+  padding-right: 10px; }
+  .o-navigation-link:last-of-type {
+    border-right: none; }
   @media (max-width: 63em) {
     .o-navigation-link {
-      padding: 20px 15px; } }
+      padding: 15px 15px; } }
   .o-navigation-link.s-active {
     color: black;
     font-weight: 700; }

@@ -3,9 +3,9 @@
   background-color: white;
   position: relative;
 
-  @include full-width-bg(transparent, 1px solid palette(grey,2));
-  
-  &:before{
+  @include full-width-bg(transparent, 1px solid palette(grey, 2));
+
+  &:before {
     bottom: -1px;
   }
 }
@@ -84,10 +84,10 @@
   }
 }
 
-
-
-.c-navigation__tertiary, .c-navigation__choice-create, .c-navigation__lot-details{
-  background-color: palette(brand,dark);
+.c-navigation__tertiary,
+.c-navigation__choice-create,
+.c-navigation__lot-details {
+  background-color: palette(brand, dark);
   color: white;
   padding: spacing(xx-small);
   position: relative;
@@ -96,26 +96,26 @@
     //margin-bottom: spacing(medium);
     padding: spacing(xx-small) 0;
 
-    @include full-width-bg(palette(brand,dark));
+    @include full-width-bg(palette(brand, dark));
   }
 }
 
-  .c-navigation__choice-create{
+.c-navigation__choice-create {
+  background-color: palette(grey);
+  border-top: 1px solid palette(grey, 4);
+
+  &:before {
     background-color: palette(grey);
-    border-top: 1px solid palette(grey,4);
-
-    &:before{
-      background-color: palette(grey);
-    }
   }
+}
 
-  .c-navigation__lot-details{
+.c-navigation__lot-details {
+  background-color: palette(brand);
+
+  &:before {
     background-color: palette(brand);
-
-    &:before{
-      background-color: palette(brand);
-    }
   }
+}
 
 .o-navigation--pagination {
   border-top: $ritchie-border;
@@ -128,11 +128,40 @@
   }
 }
 
+.o-navigation--pages {
+  @include breakpoint(medmax) {
+    border: 2px solid palette(grey, 4);
+    border-radius: 4px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: stretch;
+    padding: 0 !important;
+    margin-bottom: spacing(medium);
+  }
+}
+
+.o-navigation--center {
+  border-right: 2px solid palette(grey, 4);
+  display: inline-block;
+
+  .o-input--select {
+    height: 100%;
+    border: none;
+  }
+}
+
 .o-navigation-link {
   padding: 0 spacing(xx-small);
+  border-right: 2px solid palette(grey, 4);
+  display: inline-block;
+  padding-right: spacing(x-small);
+
+  &:last-of-type {
+    border-right: none;
+  }
 
   @include breakpoint(medmax) {
-    padding: spacing(medium) spacing(small);
+    padding: spacing(small) spacing(small);
   }
 
   &.s-active {

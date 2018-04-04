@@ -370,25 +370,49 @@
                 <div class="g-cell g-mob--full g-mob-order--last">
                     Items Per Page:
                     <span class="h-ml-100">
-                        <a href="" class="t-link o-navigation-link s-active">10</a> | 
-                        <a href="" class="t-link o-navigation-link">15</a> | 
+                        <a href="" class="t-link o-navigation-link s-active">10</a>
+                        <a href="" class="t-link o-navigation-link">15</a>
                         <a href="" class="t-link o-navigation-link">20</a>
                     </span>
                 </div>
-                <div class="g-cell g-mob--full g-mob-order--first">
-                    <a class="t-link o-navigation-link"><<</a>|
-                    <a class="t-link o-navigation-link">Previous</a>|
-                    <span class="h-hide-mobile">
-                        <a class="t-link o-navigation-link s-active">1</a>|
-                        <a class="t-link o-navigation-link">2</a>|
-                        <a class="t-link o-navigation-link">3</a>|
-                        <a class="t-link o-navigation-link">4</a>|
-                    </span>
-                    <a class="t-link o-navigation-link">Next</a>|
-                    <a class="t-link o-navigation-link">>></a>
+                <div class="g-cell g-mob--full g-mob-order--first o-navigation--pages">
+                    <a class="t-link o-navigation-link">
+                        <<</a>
+                            <a class="t-link o-navigation-link">
+                                < Prev</a>
+                                    <span class="h-hide-mobile o-navigation--center">
+                                        <a class="t-link o-navigation-link s-active">1</a>
+                                        <a class="t-link o-navigation-link">2</a>
+                                        <a class="t-link o-navigation-link">3</a>
+                                        <a class="t-link o-navigation-link">4</a>
+                                        <a class="t-link o-navigation-link">5</a>
+                                        <a class="t-link o-navigation-link">6</a>
+                                        <a class="t-link o-navigation-link">7</a>
+                                        <a class="t-link o-navigation-link">8</a>
+                                    </span>
+                                    <span class="h-hide-desktop o-navigation--center">
+                                        <select class="o-input--select">
+                                            <option value="1" selected>Page 1</option>
+                                            <option value="2">Page 2</option>
+                                            <option value="3">Page 3</option>
+                                            <option value="4">Page 4</option>
+                                            <option value="5">Page 5</option>
+                                            <option value="6">Page 6</option>
+                                            <option value="7">Page 7</option>
+                                            <option value="8">Page 8</option>
+                                            <option value="9">Page 9</option>
+                                            <option value="10">Page 10</option>
+                                            <option value="11">Page 11</option>
+                                            <option value="12">Page 12</option>
+                                        </select>
+                                    </span>
+                                    <a class="t-link o-navigation-link">Next ></a>
+                                    <a class="t-link o-navigation-link">>></a>
                 </div>
                 <div class="g-cell g-mob--full g-mob-order--last">
-                    Page <span class="t-h4">1</span> of <span class="t-h4">32</span>
+                    Page
+                    <span class="t-h4">1</span> of
+                    <span class="t-h4">11</span>
                 </div>
             </div>
         </footer>
@@ -399,7 +423,7 @@
             <button v-on:click="toggleViewerMode">Toggle Viewer Mode</button>
             <button v-on:click="toggleOutbidMessage">Show Outbid Notification</button>
             <button v-on:click="toggleSessionTimedOut">Show session timeout</button>
-            
+        
         </div>
         
         <nav class="c-nav-tabs__mobile h-hide-desktop">
@@ -538,8 +562,7 @@
         </div>
         <div class="o-message__error s-pulsating l-fixed-banner" v-if="sale.paused">
             <span class="t-h3 t-bold">The Timed Auction has been paused</span>
-        </div> 
-        
+        </div>
         <footer>Prototype controls: <button v-on:click="emptySearch">Show Empty Version</button></footer>
         
 	</div>
